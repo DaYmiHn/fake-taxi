@@ -20,7 +20,7 @@
 
             // Добавление офиса на карту
             var myOffice = new YMaps.Placemark(new YMaps.GeoPoint(30.228914,60.023590 ), 14);
-            myOffice.setIconContent("Осейкин");
+            myOffice.setIconContent("Точка Б");
             map.addOverlay(myOffice);
 
             // Менеджер маршрутов
