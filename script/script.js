@@ -1,21 +1,5 @@
 
 
-        // Создание обработчика для события window.onLoad
-        YMaps.jQuery(function () {
-            // Создание экземпляра карты и его привязка к созданному контейнеру
-            var map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
-
-            // Установка для карты ее центра и масштаба
-            map.setCenter(new YMaps.GeoPoint(30.262793,60.019263), 14);
-
-            // Установка элементов управления
-            map.enableScrollZoom();
-
-          
-        });
-
-       
-
 
       function func1(){
       		console.log ('dadadawd');
@@ -30,36 +14,99 @@
 						} 
 					}); 
 				} 
+
+var a,b;
 	function mapshow(){
-        	YMaps.jQuery(function () {
-            var map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
-            map.setCenter(new YMaps.GeoPoint(30.317512, 59.939811), 10);
-            map.enableScrollZoom();
+        ymaps.ready(init);
+        function init() {
+            var myPlacemark,
+                myMap = new ymaps.Map('YMapsID', {
+                    center: [59.939811, 30.317512],
+                    zoom: 10,
+                    controls: []
+                }), mySearchControl = new ymaps.control.SearchControl({
+                    options: {
+                        noPlacemark: true
+                    }
+                });
+                myMap.controls.add(mySearchControl);
 
-          
-        });
-	}
+            mySearchControl.events.add('resultselect', function (e) {
+                var index = e.get('index');
+                var coords = mySearchControl.getResult(index)._value.geometry.getCoordinates();
+                setMarker(coords);
+            });
+           
+            setMarker = function (coords){
+                    myPlacemark = createPlacemark(coords);
+                    myMap.geoObjects.add(myPlacemark);
+                    myPlacemark.events.add('dragend', function () {
+                        getAddress(myPlacemark.geometry.getCoordinates());
+                    });
+                getAddress(coords);
+            }
+            
+            myMap.events.add('click', function (e) {
+                var coords = e.get('coords');
+                setMarker(coords);
+            });
 
-		function point1(){
-        	YMaps.jQuery(function () {
-            var map = new YMaps.Map(YMaps.jQuery("#YMapsID")[0]);
-            map.setCenter(new YMaps.GeoPoint(30.317512, 59.939811), 10);
-            map.enableScrollZoom();
+            function createPlacemark(coords) {
+                return new ymaps.Placemark(coords, {
+                    iconCaption: 'поиск...'
+                }, {
+                    preset: 'islands#violetDotIconWithCaption',
+                    draggable: true
+                });
+            }
+            var k = 1;
+            function getAddress(coords) {
+                myPlacemark.properties.set('iconCaption', 'поиск...');
+                ymaps.geocode(coords).then(function (res) {
+                    var firstGeoObject = res.geoObjects.get(0),
+                            array = firstGeoObject.properties.get('description').split(', '),
+                            country = array[0],
+                        city = array[1];
+                    myPlacemark.properties
+                        .set({
+                            iconCaption: firstGeoObject.properties.get('name'),
+                            balloonContent: firstGeoObject.properties.get('text')
+                        });
+                    
+                    switch(k) {
+                      case 0:
+                        alert("Ошибочка");
+                        break;
 
-          
-        });
-	}
+                      case 1:  
+                        a = firstGeoObject.properties.get('name');
+                        $('#adress_a').val(firstGeoObject.properties.get('name'));
+                        k++;
+                        break;
+
+                      case 2: 
+                        b = firstGeoObject.properties.get('name');
+                        $('#adress_b').val(firstGeoObject.properties.get('name'));
+                        document.getElementById('YMapsID').style.display = "none";
+                        marshrut(a,b)
+                        break;
+
+                      default:
+                        alert("Ошибочка");
+                        break;
+                    }
+                   
+                });
+            }
+        }
+    }
 
 
 
-	function marshrut(){
+	function marshrut(adress_a, adress_b){
       ymaps.ready(init);  function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
-        referencePoints: [
-            "Сестрорецк, ул. Володарского, 7/9",
-              "СПБ, ул. Репищева 21",
-
-        ],
+        referencePoints: [adress_a,adress_b],
         params: {
             routingMode: 'avto'
         }
@@ -90,8 +137,17 @@
     }, {
         buttonMaxWidth: 350
     });
+    
     myMap.geoObjects.add(multiRoute);
-}
+    var geoBounds = new YMaps.GeoCollectionBounds(); 
+
+    multiRoute.model.events.add("requestsuccess", function() {
+
+   myMap.setBounds(multiRoute.getBounds(),true);
+
+  });
     }
+
+}
 
 

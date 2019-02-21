@@ -17,9 +17,9 @@
 
         <div class="input">
             <label for="">Введите ваш адрес:</label>
-            <input type="text" class="textbox" id="adress">
+            <input type="text" class="textbox" id="adress_a">
             <label for="">Куда вам нужно доехать:</label>
-            <input type="text" class="textbox">
+            <input type="text" class="textbox" id="adress_b">
             <a href="#" class="button9" onClick="func1()">Заказать такси</a>
         </div>
           <div id="YMapsID"></div>
