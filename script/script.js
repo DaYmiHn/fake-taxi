@@ -145,10 +145,9 @@ var a,b;
 
    myMap.setBounds(multiRoute.getBounds(),true);
    alert(multiRoute.getRoutes().get(0).properties.get("distance").value);
-   alert(multiRoute.getRoutes().get(0).properties.get("durationInTraffic").value);
+   var sred = multiRoute.getRoutes().get(0).properties.get("durationInTraffic").value + multiRoute.getRoutes().get(0).properties.get("duration").value
+   alert(sred/2);//среднее время в пути ((без пробок) + (с пробками))/2
   });
     }
 
 }
-
-
