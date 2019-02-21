@@ -60,6 +60,8 @@ var a,b;
                 });
             }
             var k = 1;
+
+
             function getAddress(coords) {
                 myPlacemark.properties.set('iconCaption', 'поиск...');
                 ymaps.geocode(coords).then(function (res) {
@@ -100,7 +102,6 @@ var a,b;
             }
         }
     }
-
 
 
 	function marshrut(adress_a, adress_b){
@@ -150,4 +151,11 @@ var a,b;
   });
     }
 
+}
+
+
+
+
+function about (){
+	location.href = "about.html";
 }

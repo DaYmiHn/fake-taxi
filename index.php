@@ -12,9 +12,33 @@
    </head>
 
 <body onload="mapshow()">
-
     <div class="conteiner">
+                <div class="menu">
+                      
+                        <!-- Иконка меню -->
+                        <div class="icon-close">
+                            <img src="../src/close-btn.png">
+                        </div>
 
+                        <!-- Меню -->
+                        <ul>
+                            <li><a href="#">Зарегестрироваться</a></li>
+                            <li><a href="#">Войти в аккаунт</a></li>
+                            <li><a href="#" onclick="about()">О нас</a></li>
+                            <li><a href="#">Помощь</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Main body -->
+                    <div class="background">
+
+                        <div class="icon-menu">
+                            <img src="../src/menu-ham-icon.png">
+                            Menu
+                        </div>
+                    </div>                        
+                    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+                    <script src="../script/menu.js"></script>
         <div class="input">
             <label for="">Введите ваш адрес:</label>
             <input type="text" class="textbox" id="adress_a">
@@ -25,10 +49,13 @@
           <div id="YMapsID"></div>
           <div id="map"></div>
     </div>
-     
+        
    
    
      <script src="script/script.js"></script>
+                
+
+                                    
 </body>
 
 </html>
