@@ -144,7 +144,8 @@ var a,b;
     multiRoute.model.events.add("requestsuccess", function() {
 
    myMap.setBounds(multiRoute.getBounds(),true);
-
+   alert(multiRoute.getRoutes().get(0).properties.get("distance").value);
+   alert(multiRoute.getRoutes().get(0).properties.get("durationInTraffic").value);
   });
     }
 
