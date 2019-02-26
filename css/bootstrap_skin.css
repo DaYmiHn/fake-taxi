@@ -1,0 +1,70 @@
+body{
+ background-color: #222222f2;
+ color: #fff;
+}
+.btn {
+	border-radius: 0;
+}
+.carousel .item {
+	height: 500px;
+	background-color: #777;
+}
+.navbar-inverse{
+	border-radius: 0;
+}
+.nav{
+	position: static; 
+  	width: 100px;
+  	top: 10px; 
+  	left: 0px;
+ } 	
+.nav-tabs{
+	border-bottom: 0px solid #ccc;
+	position: static;
+}
+.nav> li > a{
+	width:300px;
+	padding: 40px 55px;
+	text-align: center;
+	border-radius: 0;
+	border-right: 1px solid #ccc;
+	border-bottom: 0px;
+}
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
+	border-right-color: transparent;
+	background:#2d2d2d;
+	color: #fff;
+	border-bottom: 1px solid #fff;
+}
+
+.tab-content{
+	position: absolute; 
+  	width: 500px;
+  	top: 70px; 
+  	left: 400px;
+}
+
+.panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a{
+	text-decoration: none;s
+}
+.panel-body{
+	color:#222;
+	height: 300px;
+}
+.panel{
+	width: 750px;
+}
+.panel-group .panel{
+	border-radius: 0;
+}
+.fade{
+	width: 750px;
+}
+.input-lg{
+	width: 200px;
+	position: absolute;
+	z-index: 1;
+}
+.col-lg-10 {
+    width: 340px;
+}
