@@ -3,16 +3,19 @@
 
       function func1(){
       		console.log ('dadadawd');
-      		var adress = document.getElementById("adress"); 
+            var a = document.getElementById("adress_a"); 
+      		var b = document.getElementById("adress_b"); 
+            document.getElementById('YMapsID').style.display = "none";
+            marshrut(a,b);
 
-      				$.ajax({ 
-						type: "GET", 
-						url: "script/geocoder.php", 
-						data: { adress: adress.value}, 
-						success: function(data) { 	
-						console.log(data);
-						} 
-					}); 
+     //  				$.ajax({ 
+					// 	type: "GET", 
+					// 	url: "script/geocoder.php", 
+					// 	data: { adress: adress.value}, 
+					// 	success: function(data) { 	
+					// 	console.log(data);
+					// 	} 
+					// }); 
 				} 
 
 var a,b;
