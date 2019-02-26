@@ -19,13 +19,13 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-	<link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css" />
-	<link rel="stylesheet" href="css/bootstrap_skin.css">
-	<link rel="stylesheet" href="libs/animate/animate.css" />
+	<link rel="stylesheet" href="script/libs/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="style/css/bootstrap_skin.css">
+	<link rel="stylesheet" href="script/libs/animate/animate.css" />
 
-	<link rel="stylesheet" href="css/main.css" />
-	<!--<link rel="stylesheet" href="css/skins/red.css" id="template_settings" />-->
-	<link rel="stylesheet" href="css/media.css" />
+	<link rel="stylesheet" href="style/css/main.css" />
+	<!--<link rel="stylesheet" href="style/css/skins/red.css" id="template_settings" />-->
+	<link rel="stylesheet" href="style/css/media.css" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link rel="stylesheet" href="style/style.css">
     <script src="https://api-maps.yandex.ru/1.1/index.xml" type="text/javascript">
@@ -234,18 +234,18 @@
 	<div class="hidden"></div>
 
 	<!--[if lt IE 9]>
-	<script src="libs/html5shiv/es5-shim.min.js"></script>
-	<script src="libs/html5shiv/html5shiv.min.js"></script>
-	<script src="libs/html5shiv/html5shiv-printshiv.min.js"></script>
-	<script src="libs/respond/respond.min.js"></script>
+	<script src="script/libs/html5shiv/es5-shim.min.js"></script>
+	<script src="script/libs/html5shiv/html5shiv.min.js"></script>
+	<script src="script/libs/html5shiv/html5shiv-printshiv.min.js"></script>
+	<script src="script/libs/respond/respond.min.js"></script>
 	<![endif]-->
 
-	<script src="libs/jquery/jquery-1.11.2.min.js"></script>
-	<script src="libs/modernizr/modernizr.js"></script>
-	<script src="libs/bootstrap/js/bootstrap.min.js"></script>
-	<script src="libs/waypoints/waypoints.min.js"></script>
-	<script src="libs/plugins-scroll/plugins-scroll.js"></script>
-	<script src="libs/animate/animate-css.js"></script>
+	<script src="script/libs/jquery/jquery-1.11.2.min.js"></script>
+	<script src="script/libs/modernizr/modernizr.js"></script>
+	<script src="script/libs/bootstrap/js/bootstrap.min.js"></script>
+	<script src="script/libs/waypoints/waypoints.min.js"></script>
+	<script src="script/libs/plugins-scroll/plugins-scroll.js"></script>
+	<script src="script/libs/animate/animate-style/.js"></script>
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="js/main.js"></script>

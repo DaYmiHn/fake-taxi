@@ -8,14 +8,6 @@
             document.getElementById('YMapsID').style.display = "none";
             marshrut(a.value,b.value);
 
-     //  				$.ajax({ 
-					// 	type: "GET", 
-					// 	url: "script/geocoder.php", 
-					// 	data: { adress: adress.value}, 
-					// 	success: function(data) { 	
-					// 	console.log(data);
-					// 	} 
-					// }); 
 				} 
 
 var a,b;
