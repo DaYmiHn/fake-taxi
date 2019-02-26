@@ -6,7 +6,7 @@
             var a = document.getElementById("adress_a"); 
       		var b = document.getElementById("adress_b"); 
             document.getElementById('YMapsID').style.display = "none";
-            marshrut(a,b);
+            marshrut(a.value,b.value);
 
      //  				$.ajax({ 
 					// 	type: "GET", 
@@ -147,10 +147,17 @@ var a,b;
     multiRoute.model.events.add("requestsuccess", function() {
 
    myMap.setBounds(multiRoute.getBounds(),true);
-   alert(multiRoute.getRoutes().get(0).properties.get("distance").value);
+   // alert(multiRoute.getRoutes().get(0).properties.get("distance").value);
    var sred = multiRoute.getRoutes().get(0).properties.get("durationInTraffic").value + multiRoute.getRoutes().get(0).properties.get("duration").value
-   alert(sred/2);//среднее время в пути ((без пробок) + (с пробками))/2
+   // alert(sred/2);//среднее время в пути ((без пробок) + (с пробками))/2
+   raschet(multiRoute.getRoutes().get(0).properties.get("distance").value,sred/2)
   });
     }
 
 }
+
+function raschet(distance,duration) {
+    var price = 39 + ((distance/1000) * 12) + ((duration/60) * 3);
+    var x=Math.round(price);
+    alert (x +" руб.");   
+    }
