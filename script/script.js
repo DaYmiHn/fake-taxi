@@ -151,5 +151,29 @@ var a,b;
 function raschet(distance,duration) {
     var price = 39 + ((distance/1000) * 12) + ((duration/60) * 3);
     var x=Math.round(price);
-    alert (x +" руб.");   
+    // alert (x +" руб.");   
+    yesOrNo(x);
     }
+
+
+function yesOrNo(x){
+var Url = "poezdka.php?id=";
+var result = confirm("Вы готовы заказть такси за "+x+" руб.");
+if (result ==true){
+// alert("Вы нажали Да!");
+$.ajax({
+    type: "GET",
+    url: "script/create-poezdka.php",
+    data: { price: x, t_a: a, t_b: b },
+    success: function(data) {
+      top.location.href=Url+data;
+    }
+}); 
+
+}
+else{
+// alert("Вы нажали Отмена!");
+window.location.reload();
+}
+return false;
+}
