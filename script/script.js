@@ -1,16 +1,16 @@
-
+var a,b;
 
 
       function func1(){
       		console.log ('dadadawd');
-            var a = document.getElementById("adress_a"); 
-      		var b = document.getElementById("adress_b"); 
+            a = document.getElementById("adress_a").value; 
+      		b = document.getElementById("adress_b").value; 
             document.getElementById('YMapsID').style.display = "none";
-            marshrut(a.value,b.value);
+            marshrut(a, b);
 
 				} 
 
-var a,b;
+
 	function mapshow(){
         document.getElementById('YMapsID').style.display = "";
         ymaps.ready(init);
@@ -98,8 +98,7 @@ var a,b;
     }
 
 
-
-	function marshrut(adress_a, adress_b){
+function marshrut(adress_a, adress_b){
         document.getElementById('map').style.display = "";
       ymaps.ready(init);  function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
