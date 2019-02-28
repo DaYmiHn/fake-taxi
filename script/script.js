@@ -12,6 +12,7 @@
 
 var a,b;
 	function mapshow(){
+        document.getElementById('YMapsID').style.display = "";
         ymaps.ready(init);
         function init() {
             var myPlacemark,
@@ -99,6 +100,7 @@ var a,b;
 
 
 	function marshrut(adress_a, adress_b){
+        document.getElementById('map').style.display = "";
       ymaps.ready(init);  function init () {
     var multiRoute = new ymaps.multiRouter.MultiRoute({
         referencePoints: [adress_a,adress_b],
@@ -126,7 +128,7 @@ var a,b;
     });
 
     var myMap = new ymaps.Map('map', {
-        center: [60.086280, 29.958469],
+        center: [59.940664, 30.316987],
         zoom: 12,
         controls: [changeLayoutButton]
     }, {
@@ -142,7 +144,8 @@ var a,b;
    // alert(multiRoute.getRoutes().get(0).properties.get("distance").value);
    var sred = multiRoute.getRoutes().get(0).properties.get("durationInTraffic").value + multiRoute.getRoutes().get(0).properties.get("duration").value
    // alert(sred/2);//среднее время в пути ((без пробок) + (с пробками))/2
-   raschet(multiRoute.getRoutes().get(0).properties.get("distance").value,sred/2)
+   setTimeout(raschet, 3000, multiRoute.getRoutes().get(0).properties.get('distance').value, sred/2);
+   
   });
     }
 
@@ -157,23 +160,94 @@ function raschet(distance,duration) {
 
 
 function yesOrNo(x){
-var Url = "poezdka.php?id=";
-var result = confirm("Вы готовы заказть такси за "+x+" руб.");
+// var Url = "script/poezdka.php?id=";
+var result = confirm("Вы готовы заказть такси за "+x+" руб.?");
 if (result ==true){
-// alert("Вы нажали Да!");
 $.ajax({
     type: "GET",
     url: "script/create-poezdka.php",
     data: { price: x, t_a: a, t_b: b },
     success: function(data) {
-      top.location.href=Url+data;
     }
 }); 
-
+bibika();
 }
 else{
-// alert("Вы нажали Отмена!");
 window.location.reload();
 }
 return false;
+}
+
+
+function hide_all(){
+  var elems = document.getElementsByClassName('mapsulya');
+  for (var i=0;i<elems.length;i+=1){
+    elems[i].style.display = 'none';
+  }
+  
+}
+
+
+function bibika() {
+    hide_all();
+    document.getElementById('bibika').style.display = "";
+    var map, car;
+ymaps.ready(function () {
+    "use strict";
+
+    map = new ymaps.Map("bibika", {
+        center: [59.940664, 30.316987],
+        zoom: 10
+    });
+
+    $.getScript('script/car.js', function () {
+        car = new Car({
+            iconLayout: ymaps.templateLayoutFactory.createClass(
+                '<div class="b-car b-car_blue b-car-direction-$[properties.direction]"></div>'
+            )
+        });
+
+        // Прокладывание маршрута от станции метро "Смоленская"
+        // до станции Третьяковская (маршрут должен проходить через метро "Кропоткинская").
+        // Точки маршрута можно задавать 3 способами:  как строка, как объект или как массив геокоординат.
+        ymaps.route([
+            a,
+            b // и до метро "Третьяковская"
+        ], {
+            // Опции маршрутизатора
+            mapStateAutoApply: true // автоматически позиционировать карту
+        }).then(function (route) {
+            // Задание контента меток в начальной и конечной точках
+            var points = route.getWayPoints();
+
+            points.get(0).properties.set("iconContent", "А");
+            points.get(1).properties.set("iconContent", "Б");
+
+            // Добавление маршрута на карту
+            map.geoObjects.add(route);
+            // И "машинку" туда же
+            map.geoObjects.add(car);
+
+            // Отправляем машинку по полученному маршруту простым способом
+            // car.moveTo(route.getPaths().get(0).getSegments());
+            // или чуть усложненным: с указанием скорости,
+            car.moveTo(route.getPaths().get(0).getSegments(), {
+                speed: 10,
+                directions: 8
+            }, function (geoObject, coords, direction) { // тик движения
+                // перемещаем машинку
+                geoObject.geometry.setCoordinates(coords);
+                // ставим машинке правильное направление - в данном случае меняем ей текст
+                geoObject.properties.set('direction', direction.t);
+
+            }, function (geoObject) { // приехали
+                geoObject.properties.set('balloonContent', "Приехали!");
+                geoObject.balloon.open();
+            });
+
+        }, function (error) {
+            console.error("Возникла ошибка: " + error.message);
+        });
+    });
+});
 }

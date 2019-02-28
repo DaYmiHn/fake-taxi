@@ -11,6 +11,12 @@
 	<title>Заголовок</title>
 	<meta content="" name="description" />
 
+
+ 	<link href="http://zxqfox.github.io/ymaps/examples/car/car.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.1.0/css/bootstrap-combined.min.css" rel="stylesheet">
+    <script src="http://api-maps.yandex.ru/2.0.15/?load=package.full&lang=ru-RU" type="text/javascript"></script>
+
+
 	<link rel="shortcut icon" href="img/favicon/favicon.ico" type="image/x-icon" />
 	<link rel="apple-touch-icon" href="img/favicon/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="72x72" href="img/favicon/apple-touch-icon-72x72.png" />
@@ -35,7 +41,7 @@
 
 </head>
 
-<body onload="mapshow()">
+<body onload="hide_all(); mapshow();">
 
 <header >
 		<img src="img/taxi_logos_PNG17.png" alt="" class="logotype">
@@ -67,8 +73,9 @@
             <input type="text" class="textbox" id="adress_b">
             <a href="#" class="button9" onClick="func1()">Заказать такси</a>
         </div>
-          <div id="YMapsID"></div>
-          <div id="map"></div>
+          <div id="YMapsID" class="mapsulya"></div>
+          <div id="map" class="mapsulya"></div>
+          <div id="bibika" class="mapsulya"></div>
 	</div>
 	
 

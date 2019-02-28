@@ -6,7 +6,7 @@
 			 '".$_GET['price']."',
 			 '".$_GET['t_a']."',
 			 '".$_GET['t_b']."',
-			 '".date( "d.m.y H:i" )."',
+			 '".date( "y.m.d H:i:s" )."',
 			 'created')";
 	$result = $connection->query($sql);
  ?>
