@@ -67,11 +67,11 @@
 
 	<div class="tab-pane fade active in" id="order">
 		<div class="input">
-            <label for="">Введите ваш адрес:</label>
-            <input type="text" class="textbox" id="adress_a">
-            <label for="">Куда вам нужно доехать:</label>
-            <input type="text" class="textbox" id="adress_b">
-            <a href="#" class="button9" onClick="func1()">Заказать такси</a>
+            <label for="adress_a">Введите ваш адрес:</label>
+            <input type="text" class="textbox" id="adress_a" style="margin-bottom: 0px!important;">                     
+            <label for="adress_b">Куда вам нужно доехать:</label>
+            <input type="text" class="textbox" id="adress_b" style="margin-bottom: 0px!important;"><br><br>
+            <center><a href="#" class="button9" onClick="func1()">Заказать такси</a></center>
         </div>
           <div id="YMapsID" class="mapsulya"></div>
           <div id="map" class="mapsulya"></div>
