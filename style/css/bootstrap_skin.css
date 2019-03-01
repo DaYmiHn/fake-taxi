@@ -1,13 +1,14 @@
 body{
- background-color: #222222f2;
- color: #fff;
+ background-color: #fff;
+ /*background-color: #222222f2;*/
+ color: black;
 }
 .btn {
 	border-radius: 0;
 }
 .carousel .item {
 	height: 500px;
-	background-color: #777;
+	background-color: red;
 }
 .navbar-inverse{
 	border-radius: 0;
@@ -32,8 +33,8 @@ body{
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus{
 	border-right-color: transparent;
-	background:#2d2d2d;
-	color: #fff;
+	background:#cecece;
+	color: black;
 	border-bottom: 1px solid #fff;
 }
 
