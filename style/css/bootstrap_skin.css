@@ -39,9 +39,8 @@ body{
 
 .tab-content{
 	position: absolute; 
-/*  	width: 500px; Геля сорян сама виновата*/
-  	top: 70px; 
-  	left: 400px;
+  	top: 70px; left: 35%; 
+  	/*left: 400px;*/
 }
 
 .panel-title > a, .panel-title > small, .panel-title > .small, .panel-title > small > a, .panel-title > .small > a{

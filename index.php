@@ -56,9 +56,9 @@
 <ul class="nav nav-tabs">
 	<li class="active"><a href="#order" data-toggle="tab">Заказать</a></li>
 	<li><a href="#trips" data-toggle="tab">Поездки</a></li>
-	<li><a href="#payment" data-toggle="tab">Оплата</a></li>
+<!-- 	<li><a href="#payment" data-toggle="tab">Оплата</a></li> -->
 	<li><a href="#help" data-toggle="tab">Помощь</a></li>
-	<li><a href="#setting" data-toggle="tab">Настройки</a></li>
+<!-- 	<li><a href="#setting" data-toggle="tab">Настройки</a></li> -->
 </ul>
 
 
